@@ -1,0 +1,10 @@
+# gradle specific
+.gradle/
+
+gemfire-connector/build-artifacts/
+gemfire-connector/connector/build-artifacts/
+gemfire-connector/connector/output.txt
+gemfire-connector/connector/progress.txt
+gemfire-connector/gfeFunctions/build-artifacts/
+jdbc-stream-connector/build-artifacts/
+
