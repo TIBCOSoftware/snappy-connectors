@@ -1,7 +1,5 @@
 apply plugin: 'scala'
 
-version = '0.9.6'
-
 compileScala.options.encoding = 'UTF-8'
 // fix scala+java mix to all use compileScala which uses correct dependency order
 sourceSets.main.scala.srcDir 'src/main/scala'

@@ -31,8 +31,8 @@ import io.snappydata.test.dunit.AvailablePortHelper
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.filefilter.{IOFileFilter, TrueFileFilter, WildcardFileFilter}
 
-import org.apache.spark.sql.catalyst.util.CaseInsensitiveMap
 import org.apache.spark.sql.collection.Utils
+import org.apache.spark.sql.execution.columnar.ExternalStoreUtils.CaseInsensitiveMutableHashMap
 import org.apache.spark.sql.streaming.jdbc.{JDBCSource, SnappyStoreSink, SnappyStreamSink}
 import org.apache.spark.sql.{Dataset, Row, SnappySession}
 
@@ -759,9 +759,9 @@ class DmlOpsInBatchCdcConnectorTest extends SnappyFunSuite {
   }
 
   test("JDBCSource toString returns params with masked password") {
-    val params = new CaseInsensitiveMap(Map("user" -> username,
-      "password" -> password, "sourceTableName" -> "table1",
-      "url" -> url, "driver" -> "com.microsoft.sqlserver.jdbc.SQLServerDriver"))
+    val params = Utils.immutableMap(new CaseInsensitiveMutableHashMap[String](Map(
+      "user" -> username, "password" -> password, "sourceTableName" -> "table1",
+      "url" -> url, "driver" -> "com.microsoft.sqlserver.jdbc.SQLServerDriver")))
     val jdbcSource = JDBCSource(snc.snappySession.sqlContext, params,
       new DummySpec)
     val expected = s"JDBCSource[${params.updated("password", "****")}]"
