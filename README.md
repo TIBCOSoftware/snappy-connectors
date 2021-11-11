@@ -4,4 +4,4 @@ This repository is provided for legacy users and informational purposes only. It
 
 # SnappyData Connectors
 
-Disclaimer: This repo is still work-in-progress.
+As of now this public repository contains an implementation of a JDBC streaming connector that can push inserts/updates/delete to SnappyData maintained column/row tables using CDC.
