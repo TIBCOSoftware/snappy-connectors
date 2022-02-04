@@ -21,13 +21,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.log4j.Logger;
 import org.apache.spark.sql.expressions.Window;
 import org.apache.spark.sql.expressions.WindowSpec;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.*;
 import org.apache.spark.sql.streaming.jdbc.SnappyStreamSink;
 import org.apache.spark.sql.collection.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static java.util.Arrays.asList;
 import static org.apache.spark.SnappyJavaUtils.snappyJavaUtil;
@@ -36,7 +37,7 @@ import static org.apache.spark.sql.functions.first;
 
 public class ProcessEvents implements SnappyStreamSink {
 
-    private static final Logger log = Logger.getLogger(ProcessEvents.class.getName());
+    private static final Logger log = LoggerFactory.getLogger(ProcessEvents.class.getName());
 
     private static final List<String> metaColumns = asList("__$start_lsn",
         "__$end_lsn", "__$seqval", "__$operation", "__$update_mask", "__$command_id", "STRLSN", "LSNTOTIME");

@@ -28,7 +28,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import com.typesafe.config.Config;
-import org.apache.log4j.Logger;
 import org.apache.spark.scheduler.SparkListener;
 import org.apache.spark.scheduler.SparkListenerApplicationEnd;
 import org.apache.spark.sql.*;
@@ -39,6 +38,7 @@ import org.apache.spark.sql.streaming.StreamingQuery;
 import org.apache.spark.sql.streaming.jdbc.StreamConf;
 import org.apache.spark.util.Utils;
 import scala.collection.Seq;
+
 import static scala.collection.JavaConversions.seqAsJavaList;
 
 public class JavaCdcStreamingAppSnappyJob extends JavaSnappySQLJob {

@@ -7,7 +7,6 @@ import java.util.Properties;
 import java.util.function.BiPredicate;
 
 import io.snappydata.SQLServerCdcBase;
-import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -16,6 +15,8 @@ import org.apache.spark.sql.streaming.StreamingQuery;
 import org.apache.spark.sql.streaming.jdbc.SnappyStreamSink;
 import org.apache.spark.sql.types.StructType;
 import org.apache.spark.util.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 
@@ -50,7 +51,7 @@ public class JdbcCdcStreamingApp extends SQLServerCdcBase {
 
 	public static class ProcessEvents implements SnappyStreamSink {
 
-		private static Logger log = Logger.getLogger(ProcessEvents.class.getName());
+		private static Logger log = LoggerFactory.getLogger(ProcessEvents.class.getName());
 
 		@Override
 		public void process(SnappySession snappySession, scala.collection.immutable.Map<String, String> sinkProps, long batchId, Dataset<Row> df) {
