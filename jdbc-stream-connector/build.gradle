@@ -30,10 +30,6 @@ dependencies {
   compile 'org.scala-lang:scala-reflect:' + scalaVersion
   compile 'org.scala-lang:scala-compiler:' + scalaVersion
 
-  compile 'org.slf4j:slf4j-api:' + slf4jVersion
-  compile 'org.slf4j:slf4j-log4j12:' + slf4jVersion
-  compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
-  compile 'org.slf4j:jul-to-slf4j:' + slf4jVersion
   compile 'com.microsoft.sqlserver:mssql-jdbc:' + mssqlVersion
 
   compile (project(':snappy-core_' + scalaBinaryVersion)) {
