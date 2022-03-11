@@ -75,13 +75,13 @@ SnappyData core and SnappyData jdbc streaming connector maven dependencies would
 <dependency>
   <groupId>io.snappydata</groupId>
   <artifactId>snappydata-jdbc-stream-connector_2.11</artifactId>
-  <version>0.9</version>
+  <version>1.3.1</version>
   <scope>compile</scope>
 </dependency>
 <dependency>
   <groupId>io.snappydata</groupId>
   <artifactId>snappydata-core_2.11</artifactId>
-  <version>1.0.0</version>
+  <version>1.3.1</version>
   <scope>compile</scope>
 </dependency>    
 ```
