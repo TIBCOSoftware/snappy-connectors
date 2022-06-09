@@ -71,7 +71,8 @@ reader.writeStream.outputMode("append").format("console").start
 ### Dependencies
 
 SnappyData core and SnappyData jdbc streaming connector maven dependencies would be needed for your application. 
-```bash
+
+```xml
 <dependency>
   <groupId>io.snappydata</groupId>
   <artifactId>snappydata-jdbc-stream-connector_2.11</artifactId>
@@ -85,6 +86,20 @@ SnappyData core and SnappyData jdbc streaming connector maven dependencies would
   <scope>compile</scope>
 </dependency>    
 ```
+
+Also add cloudera repository to the set of Maven repositories to be searched:
+
+```xml
+  <repositories>
+    <repository>
+      <id>cloudera-repo</id>
+      <name>cloudera repo</name>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+    </repository>
+    ...
+  </repositories>
+```
+
 ### SnappyStoreSink
 
 For ingesting the events in a SnappyData table, one needs to implement a SnappyStoreSink. This sink can ingest the data coming from JDBC source into a snappy table. The reader created for the JDBCSource can create a StreamWriter. 
