@@ -17,10 +17,14 @@
             <name>cloudera repo</name>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
         </repository>
+        <repository>
+            <id>atlassian-repo</id>
+            <name>atlassian repo</name>
+            <url>https://packages.atlassian.com/maven-3rdparty</url>
+        </repository>
     </repositories>
 
     <dependencies>
-        <!-- publish the jar into your local maven repository -->
         <dependency>
             <groupId>io.snappydata</groupId>
             <artifactId>snappydata-jdbc-stream-connector_2.11</artifactId>
